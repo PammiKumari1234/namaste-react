@@ -12,16 +12,15 @@ const Body = () => {
       }, []);
 
       const fetchData = async () =>{
-        const data= await fetch("https://fakestoreapi.com/products");
-        // const data= await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+        const data= await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
         const json= await data.json();
-        setrestroList(json);
-        setfilteredRestro(json)
-        // setrestroList(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-        // console.log(restroList);
+        setrestroList(json?.data?.cards[4].card.card.gridElements.infoWithStyle.restaurants);
+        setfilteredRestro(json?.data?.cards[4].card.card.gridElements.infoWithStyle.restaurants
+            );
+        console.log(restroList);
       }
     
-    return restroList.length === 0 ? <Shimmer/> :(
+    return (
         <div className="body">
             <div className="filter"> 
             <div className="search">
@@ -29,14 +28,14 @@ const Body = () => {
                 <button onClick={()=>
                     {
                         const filteredRestro= restroList.filter(
-                            (res) => res.title.toLowerCase().includes(searchText.toLowerCase())
+                            (res) => res.info.name.toLowerCase().includes(searchText.toLowerCase())
                         );
                         setfilteredRestro(filteredRestro);
                     }
                 }>Search</button>
             </div>
                 <button className="filter-btn" onClick={()=>{
-                const filteredList = restroList.filter((res)=>res.rating.rate>4
+                const filteredList = restroList.filter((res)=>res.info.avgRating > 4
                 );
                 setfilteredRestro(filteredList);
             }}
@@ -45,7 +44,7 @@ const Body = () => {
             </div>
             <div className="res-container">
                 {
-                    filteredRestro.map((restraunt) => <RestaurantCard key={restraunt.id} resData={restraunt}/>)
+                    filteredRestro.map((restraunt) => <RestaurantCard key={restraunt.info.id} resData={restraunt}/>)
                 }
             </div>
         </div>
