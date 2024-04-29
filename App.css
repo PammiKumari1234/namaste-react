@@ -1,7 +1,9 @@
 .header{
     display: flex;
     justify-content: space-between;
-    border: 1px solid black;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    z-index: 1000; 
 }
 .logo{
     width: 100px;
@@ -18,35 +20,154 @@
     margin: 10px;
     font-size: 23px;
 }
+.nav-items > ul >li >a{
+    text-decoration: none;
+}
 .res-container{
     display: flex;
     flex-wrap: wrap;
-    margin: 5px;
+    /* margin: 5px; */
+    justify-content: space-evenly;
 }
 .res-card{
     padding: 5px;
-    margin: 5px;
+    margin: 15px;
     width: 200px;
-    border: 2px solid black;
-    background: #f0f0f0;
 }
-.res-card > img{
+.image-container{
+    position: relative;
+    display: inline-block;
+}
+.res-card > .image-container> img{
     width: 100%;
+    border-radius: 20px;
+    transition: transform 0.3s ease-in-out;
+}
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: auto; 
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px; 
+    box-sizing: border-box;
+}
+
+.text {
+    color: white;
+    margin: 0;
+    font-size: 16px; 
+    font-weight: bold; 
+    text-align: left; 
 }
 .res-card:hover{
     cursor: pointer;
-    border: 1px solid black;
+    transform: scale(1.1);
+}
+.res-name{
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: -0.3px;
+    color: rgba(2, 6, 12, 0.75);
+    overflow: hidden;
+    width: 100%;
+    display: -webkit-box;
+    overflow-wrap: break-word;
+}
+.res-rating{
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: -0.3px;
+    color: rgba(2, 6, 12, 0.75);
+}
+.res-desc{
+    font-weight: 200;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: -0.3px;
+    color: rgba(2, 6, 12, 0.6);
+    overflow: hidden;
+    width: 100%;
+}
+.res-card-inner{
+    margin-left: 12px;
 }
 .search{
     padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.search-box{
+    flex: 1;
+    padding: 9px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    margin-right: 5px;
+}
+.search-btn{
+    display: inline-block;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(to right, #ff5f6d, #ffc371);
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.search-btn {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.search-btn:active  {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 .res-logo{
     width: 100%;
+}
+.filter{
+    display: flex;
+    margin-left: 25px;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 .filter-btn{
     margin: 5px;
     padding: 4px;
     cursor:pointer;
+}
+.filter-btn{
+    display: inline-block;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(to right, #ff5f6d, #ffc371);
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.filter-btn, .search-btn {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.filter-btn:active, .search-btn:active  {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 .shimmer-container{
     display: flex;
@@ -61,7 +182,25 @@
 .login-btn{
     padding: 0 20px;
     cursor: pointer;
+    width: 100px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(to right, #ff5f6d, #ffc371);
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    margin: 10px 0 15px;
 }
-.filter{
-    display: flex;
+.login-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.login-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
