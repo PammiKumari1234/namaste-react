@@ -1,30 +1,48 @@
+import React from "react";
+import { Link } from "react-router-dom";
 import { CDN_URL } from "../utils/constants";
+
 const RestaurantCard = (props) => {
   const { resData } = props;
-  const { cloudinaryImageId, name, avgRating, cuisines, costForTwo, locality } =
-    resData?.info;
+  const {
+    cloudinaryImageId,
+    name,
+    avgRating,
+    cuisines,
+    costForTwo,
+    locality,
+    id,
+  } = resData?.info;
 
   return (
-    <div className="res-card">
-      <div className="image-container">
-        <img
-          className="rounded-lg"
-          alt="res-logo"
-          // src={CDN_URL + cloudinaryImageId}
-          src="https://news.mit.edu/sites/default/files/styles/news_article__image_gallery/public/images/202312/MIT_Food-Diabetes-01_0.jpg?itok=Mp8FVJkC"
-        />
-        <img src={resData.image} />
-        <div class="overlay">
-          <div className="text">{costForTwo}</div>
+    <Link to={`/restaurants/${id}`}>
+      <div className="flex-auto m-4 p-4 w-[250px] bg-gradient-to-r from-red-100 to-yellow-200 rounded-lg transform hover:scale-110 transition duration-300">
+        <div className="image-container">
+          <img
+            className="rounded-lg"
+            alt="res-logo"
+            src="https://news.mit.edu/sites/default/files/styles/news_article__image_gallery/public/images/202312/MIT_Food-Diabetes-01_0.jpg?itok=Mp8FVJkC"
+          />
+          <div className="overlay">
+            <h3 className="text">{costForTwo}</h3>
+          </div>
+        </div>
+        <div className="res-card-inner">
+          <h2 className="font-bold py-4 text-xl whitespace-nowrap overflow-hidden overflow-ellipsis">
+            {name}
+          </h2>
+          <h3 className="whitespace-nowrap overflow-hidden overflow-ellipsis">
+            {avgRating} stars
+          </h3>
+          <h4 className="whitespace-nowrap overflow-hidden overflow-ellipsis">
+            {cuisines.join(", ")}
+          </h4>
+          <h5 className="whitespace-nowrap overflow-hidden overflow-ellipsis">
+            {locality}
+          </h5>
         </div>
       </div>
-      <div className="res-card-inner">
-        <div className="res-name">{name}</div>
-        <div className="res-rating">{avgRating} stars</div>
-        <div className="res-desc">{cuisines.join(", ")}</div>
-        <div className="res-desc">{locality}</div>
-      </div>
-    </div>
+    </Link>
   );
 };
 
