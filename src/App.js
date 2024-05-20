@@ -7,12 +7,14 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestrauntMenu from "./components/RestrauntMenu";
+import Footer from "./components/Footer";
 
 const AppLayout = () =>{
     return(
         <div className="app">
             <Header/>
             <Outlet/>
+            <Footer/>
         </div>
     )
 }

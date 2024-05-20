@@ -11,7 +11,7 @@ const Header = () => {
   };
 
   return (
-    <div className="flex justify-between shadow-lg mb-2">
+    <div className="flex justify-between shadow-lg bg-gradient-to-r from-red-500 to-yellow-500">
       <div className="logo-container">
         <Link to="/" className="font-bold hover:text-red-500">
           <img src={LOGO_URL} alt="logo" className="w-24" />
@@ -51,23 +51,23 @@ const Header = () => {
           } lg:flex p-4 m-4 center space-x-4`}
         >
           <li className="px-4">
-            <Link to="/" className="font-bold hover:text-red-500">
+            <Link to="/" className="font-bold hover:text-white">
               Home
             </Link>
           </li>
           <li className="px-4">
-            <Link to="/about" className="font-bold hover:text-red-500">
+            <Link to="/about" className="font-bold hover:text-white">
               About us
             </Link>{" "}
           </li>
           <li className="px-4">
-            <Link to="/Contact" className="font-bold hover:text-red-500">
+            <Link to="/Contact" className="font-bold hover:text-white">
               Contact Us
             </Link>{" "}
           </li>
-          <li className="px-4 font-bold hover:text-red-500">Cart</li>
+          <li className="px-4 font-bold hover:text-white">Cart</li>
           <button
-            className="font-bold hover:text-red-500"
+            className="font-bold hover:text-white"
             onClick={() => {
               btnName === "Login" ? setBtnName("Logout") : setBtnName("Login");
             }}
