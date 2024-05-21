@@ -1,5 +1,8 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import {useDispatch} from "react-redux";
+
+import {addItem} from "../utils/cartSlice"
 
 const RestrauntMenu = () => {
   const { resId } = useParams();
@@ -11,6 +14,12 @@ const RestrauntMenu = () => {
     { id: 4, name: "Fried Rice", price: "$8" },
   ];
 
+const dispatch= useDispatch();
+
+  const handleItem = (item) =>{
+    dispatch(addItem(item));
+  }
+
   return (
     <div className="">
       <div className="flex flex-wrap flex-col justify-center items-center p-4 m-4">
@@ -21,7 +30,7 @@ const RestrauntMenu = () => {
         {menu.map((item) => (
           <li key={item.id} className="flex items-center justify-between pb-6 border border-solid border-black w-full m-5 px-5 py-4 rounded-lg bg-gradient-to-r from-red-100 to-yellow-100 font-bold">
           <span>{item.name} - {item.price}</span>
-          <button className="font-bold px-2 py-1 bg-white ">Add</button>
+          <button className="font-bold px-2 py-1 bg-white" onClick={()=> handleItem(item)}>Add</button>
         </li>
         ))}
       </ul>

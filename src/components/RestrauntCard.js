@@ -26,11 +26,11 @@ const RestaurantCard = (props) => {
               cloudinaryImageId
             }
           />
-          <div className="overlay">
-            <h3 className="text">{costForTwo}</h3>
-          </div>
         </div>
         <div className="res-card-inner">
+        <div className="overlay">
+            <h3 className="text">{costForTwo}</h3>
+          </div>
           <h2 className="font-bold py-4 text-xl whitespace-nowrap overflow-hidden overflow-ellipsis">
             {name}
           </h2>
