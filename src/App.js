@@ -11,10 +11,8 @@ import Footer from "./components/Footer";
 import {Provider} from "react-redux";
 import appStore from "./utils/appStore"
 import Cart from "./components/Cart";
-// import {favicon} from "../"
 
 const AppLayout = () =>{
-    
     return(
         <Provider store={appStore}>
         <div className="app">
