@@ -17,9 +17,9 @@ const RestaurantCard = (props) => {
   return (
     <Link to={`/restaurants/${id}`}>
       <div className="flex-auto m-4 p-4 w-[250px] bg-gradient-to-r from-red-100 to-yellow-200 rounded-lg transform hover:scale-110 transition duration-300">
-        <div className="image-container">
+        <div className="relative pb-[75%] overflow-hidden rounded-lg bg-gray-200">
           <img
-            className="rounded-lg w-full max-h-[280px]"
+            className="absolute top-0 left-0 w-full h-full object-cover"
             alt="res-logo"
             src={
               "https://media-assets.swiggy.com/swiggy/image/upload/"+ 
