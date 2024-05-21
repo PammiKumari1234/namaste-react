@@ -8,6 +8,8 @@ const Body = () => {
   const [searchText, setSearchText] = useState("");
   const [loading, setLoading] = useState(true);
 
+  console.log(restroList,"restro lis")
+
   useEffect(() => {
     fetchData();
   }, []);

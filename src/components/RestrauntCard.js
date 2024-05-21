@@ -19,9 +19,12 @@ const RestaurantCard = (props) => {
       <div className="flex-auto m-4 p-4 w-[250px] bg-gradient-to-r from-red-100 to-yellow-200 rounded-lg transform hover:scale-110 transition duration-300">
         <div className="image-container">
           <img
-            className="rounded-lg"
+            className="rounded-lg w-full max-h-[280px]"
             alt="res-logo"
-            src="https://news.mit.edu/sites/default/files/styles/news_article__image_gallery/public/images/202312/MIT_Food-Diabetes-01_0.jpg?itok=Mp8FVJkC"
+            src={
+              "https://media-assets.swiggy.com/swiggy/image/upload/"+ 
+              cloudinaryImageId
+            }
           />
           <div className="overlay">
             <h3 className="text">{costForTwo}</h3>
@@ -45,5 +48,6 @@ const RestaurantCard = (props) => {
     </Link>
   );
 };
+
 
 export default RestaurantCard;
